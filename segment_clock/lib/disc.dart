@@ -11,7 +11,7 @@ class CentralDiscData {
 
   CentralDiscData() {
     color = Color.fromARGB(
-      _rng.nextInt(40)+12,
+      _rng.nextInt(40) + 12,
       200,
       100,
       _rng.nextInt(255),
@@ -70,8 +70,8 @@ class _CentralDiscsState extends State<CentralDiscs> {
           Positioned.fill(
             child: Align(
               alignment: Alignment.center,
-                          child: AnimatedContainer(
-                            curve: Curves.easeInCirc,
+              child: AnimatedContainer(
+                curve: Curves.easeInCirc,
                 duration: Duration(seconds: 10),
                 decoration: BoxDecoration(
                   color: disc.color,

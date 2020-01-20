@@ -40,7 +40,8 @@ class SegmentClock extends StatefulWidget {
   _SegmentClockState createState() => _SegmentClockState();
 }
 
-class _SegmentClockState extends State<SegmentClock> with TickerProviderStateMixin{
+class _SegmentClockState extends State<SegmentClock>
+    with TickerProviderStateMixin {
   DateTime _dateTime = DateTime.now();
   Timer _timer;
   Animation<double> animationCircle;
@@ -59,14 +60,15 @@ class _SegmentClockState extends State<SegmentClock> with TickerProviderStateMix
       reverseCurve: Curves.easeOut,
     );
 
-    animationCircle = Tween<double>(begin: 10, end: 500).animate(curvedAnimation)
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          _controller.reverse();
-        } else if (status == AnimationStatus.dismissed) {
-          _controller.forward();
-        }
-      });
+    animationCircle =
+        Tween<double>(begin: 10, end: 500).animate(curvedAnimation)
+          ..addStatusListener((status) {
+            if (status == AnimationStatus.completed) {
+              _controller.reverse();
+            } else if (status == AnimationStatus.dismissed) {
+              _controller.forward();
+            }
+          });
 
     _controller.forward();
     _updateTime();
@@ -140,10 +142,7 @@ class _SegmentClockState extends State<SegmentClock> with TickerProviderStateMix
         color: colors[_Element.background],
         child: Stack(
           children: [
-            BigDisc(
-              size: constraints.biggest,
-              animation: animationCircle
-            ),
+            BigDisc(size: constraints.biggest, animation: animationCircle),
             SizedBox.expand(
               child: CentralDiscs(3),
             ),
